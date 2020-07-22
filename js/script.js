@@ -1,4 +1,19 @@
 window.addEventListener('DOMContentLoaded', () => {
+    const form = document.querySelector('form');
+
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        let formData = new FormData(form);
+        formData.append('id', Math.random());
+        let objData = {};
+
+        formData.forEach((item, i) => {
+            objData[i] = item;
+        });
+
+        postResource('http://localhost:3000/people', objData);
+    });
+
     function req() {
         getResource('http://localhost:3000/people')
             .then(data => createCards(data))
@@ -17,8 +32,23 @@ window.addEventListener('DOMContentLoaded', () => {
         return await resp.json();
     }
 
-    function createCards(response) {
+    async function postResource(url, data) {
+        let resp = await fetch(`${url}`, {
+            method: 'POST',
+            headers: {
+                'Content-type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        });
 
+        if(!resp.ok) {
+            throw new Error(`Cannot fetch ${url}, status: ${resp.status}`);
+        }
+
+        return await resp.json();
+    }
+
+    function createCards(response) {
         response.forEach(item => {
             let card = document.createElement('div');
             card.classList.add('card');
@@ -44,5 +74,5 @@ window.addEventListener('DOMContentLoaded', () => {
 
     }
 
-    document.querySelector('button').addEventListener('click', req, {once: true});
+    document.querySelector('#show').addEventListener('click', req, {once: true});
 });

@@ -34,6 +34,26 @@
       "sex": "male",
       "age": 30,
       "photo": "https://rs.img.com.ua/crop?v2=1&w=600&h=0&url=%2F%2Fv.img.com.ua%2Fb%2Forig%2F4%2F77%2F0304daca3e463cf6e036a0ecb5634774.jpg"
+    },
+    {
+      "name": "Ivan",
+      "surname": "Neverovsky",
+      "id": "NaN"
+    },
+    {
+      "name": "Ivan",
+      "surname": "Neverovsky",
+      "id": "0.11455839656167544"
+    },
+    {
+      "name": "Ivan",
+      "surname": "Neverovsky",
+      "id": "0.8804088713591698"
+    },
+    {
+      "name": "123213213",
+      "surname": "Neverovsk123123123y",
+      "id": "0.14914403582219404"
     }
   ]
 }
